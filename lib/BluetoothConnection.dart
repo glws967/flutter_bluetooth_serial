@@ -51,7 +51,7 @@ class BluetoothConnection {
               onDone: this.close,
             );
 
-    input = _readStreamController.stream.asBroadcastStream();
+    input = _readStreamController.stream;
     output = _BluetoothStreamSink<Uint8List>(id);
   }
 
@@ -65,6 +65,7 @@ class BluetoothConnection {
 
   /// Should be called to make sure the connection is closed and resources are freed (sockets/channels).
   void dispose() {
+    print("LUL");
     finish();
   }
 
